@@ -1,0 +1,30 @@
+rom typing import List
+import numpy as np
+import time
+def can_get_target_sum(first_array:List[int],second_array:List[int],target_sum:int)->bool:
+    for current_num in first_array:
+        search_for=target_sum-current_num
+        if search_for in second_array:
+            return True
+        return False 
+startTime = time.time() # время начала замера
+a= np.random.randint(1, 60, 100)
+b= np.random.randint(1, 60, 100)
+can_get_target_sum(a,b,45)
+endTime = time.time() #время конца замера
+totalTime = endTime - startTime #вычисляем затраченное время
+print("Время, затраченное на выполнение данного кода = ", totalTime)
+def can_get_target_sum1(first_array:List[int],second_array:List[int],target_sum:int)->bool:
+    second_array=set(second_array)
+    for current_num in first_array:
+        search_for=target_sum-current_num
+        if search_for in second_array:
+            return True
+        return False 
+startTime1 = time.time() # время начала замера
+can_get_target_sum1(a,b,45)
+endTime1 = time.time() #время конца замера
+totalTime1 = endTime1 - startTime1 #вычисляем затраченное время
+print("Время, затраченное на выполнение данного кода = ", totalTime1)
+Время, затраченное на выполнение данного кода =  0.0009984970092773438
+Время, затраченное на выполнение данного кода =  0.0009965896606445312
